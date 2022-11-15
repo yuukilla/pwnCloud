@@ -25,5 +25,5 @@ $ composer start # start server without recopying necessary
 
 ## License
 <b>pwnCloud</b> is licensed under two licenses.
-* .
+* The MIT License (MIT). See [pwnCloud License File](LICENSE)
 * The MIT License (MIT). See [Slim-skeleton License File](LICENSE-slim-skeleton)
