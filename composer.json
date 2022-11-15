@@ -16,15 +16,20 @@
         "ext-pdo": "*",
         "cakephp/chronos": "^2",
         "cakephp/database": "^4",
+        "components/jquery": "^3.6",
         "fig/http-message-util": "^1.1",
         "monolog/monolog": "^3",
         "nyholm/psr7": "^1.4",
         "nyholm/psr7-server": "^1.0",
+        "odan/twig-assets": "^3.2",
         "php-di/php-di": "^6 || ^7",
         "selective/basepath": "^2",
         "slim/slim": "^4",
+        "slim/twig-view": "^3.3",
         "symfony/uid": "^6",
-        "symfony/validator": "^6"
+        "symfony/validator": "^6",
+        "twbs/bootstrap": "^5.2",
+        "twbs/bootstrap-icons": "^1.10"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3",
