@@ -34,6 +34,7 @@ config/env.php
 #!public/assets/.htaccess
 
 templates/assets/css/bootstrap
+templates/assets/css/bootstrap-icons
 templates/assets/js/bootstrap
 
 !tmp/

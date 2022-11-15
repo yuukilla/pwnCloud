@@ -71,7 +71,21 @@
             "@stan",
             "@test"
         ],
-        "bs:update": "rm -rf templates/assets/css/bootstrap; rm -rf templates/assets/js/bootstrap; cp -r vendor/twbs/bootstrap/dist/css templates/assets/css/bootstrap; cp -r vendor/twbs/bootstrap/dist/js templates/assets/js/bootstrap",
+        "bs:update": "rm -rf templates/assets/css/bootstrap;\n  rm -rf templates/assets/js/bootstrap;\n  cp -r vendor/twbs/bootstrap/dist/css templates/assets/css/bootstrap;\n  cp -r vendor/twbs/bootstrap/dist/js templates/assets/js/bootstrap;",
+        "bsi:update": "rm -rf templates/assets/css/bootstrap-icons; cp -r vendor/twbs/bootstrap-icons/icons templates/assets/css/bootstrap-icons;\n  mkdir templates/assets/css/bootstrap-icons/fonts;\n  cp -r vendor/twbs/bootstrap-icons/font/fonts/* templates/assets/css/bootstrap-icons/fonts;",
+        "jq:update": "rm -rf templates/assets/js/jquery.min.js;\n  cp vendor/components/jquery/jquery.min.js templates/assets/js/",
+        "assets:clear": "rm -rf public/assets/*;\n  rm -rf tmp/twig-assets;\n  rm -rf tmp/twig-cache;",
+        "start:fresh": [
+            "@bs:update",
+            "@bsi:update",
+            "@jq:update",
+            "@assets:clear",
+            "@start"
+        ],
+
         "test:coverage": "php -d xdebug.mode=coverage -r \"require 'vendor/bin/phpunit';\" -- --configuration phpunit.xml --do-not-cache-result --colors=always --coverage-clover build/logs/clover.xml --coverage-html build/coverage"
+    },
+    "scripts-descriptions": {
+        "start:fresh": "Update Front-End dependencies, clean cache and `Start Development server`"
     }
 }
