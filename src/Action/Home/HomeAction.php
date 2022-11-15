@@ -22,7 +22,7 @@ final class HomeAction
             'home.twig',
             array(
                 'title' => 'pwnCloud',
-                'desc' => "Backup necessary before migrating"
+                'desc' => "b\$ckup before switching"
             )
         );
     }
