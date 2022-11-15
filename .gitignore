@@ -33,6 +33,9 @@ config/env.php
 #public/assets/*
 #!public/assets/.htaccess
 
+templates/assets/css/bootstrap
+templates/assets/js/bootstrap
+
 !tmp/
 tmp/*
 !tmp/.htaccess
