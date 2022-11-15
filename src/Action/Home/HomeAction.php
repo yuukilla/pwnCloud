@@ -2,15 +2,28 @@
 
 namespace App\Action\Home;
 
+use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 final class HomeAction
 {
+
+    private $twig;
+
+    public function __construct(Twig $twig)
+    {
+        $this->twig = $twig;
+    }
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $response->getBody()->write('Welcome!');
-
-        return $response;
+        return $this->twig->render(
+            $response,
+            'home.twig',
+            array(
+                'title' => 'pwnCloud',
+                'desc' => "Backup necessary before migrating"
+            )
+        );
     }
 }

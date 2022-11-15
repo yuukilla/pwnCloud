@@ -8,7 +8,7 @@ ini_set('display_errors', '0');
 ini_set('display_startup_errors', '0');
 
 // Timezone
-date_default_timezone_set('Europe/Berlin');
+date_default_timezone_set('Europe/Riga');
 
 $settings = [];
 
@@ -65,6 +65,23 @@ $settings['db'] = [
 $settings['commands'] = [
     \App\Console\ExampleCommand::class,
     \App\Console\SetupCommand::class,
+];
+
+$settings['twig'] = [
+    "basePath"     => __DIR__ . "/../templates",
+    "loaderPath"   => __DIR__ . "/../public",
+    "loaderName"   => "public",
+    "debug"        => true,
+    "cacheEnabled" => true,
+    "cachePath"    => __DIR__ . "/../tmp/twig-cache"
+];
+
+$settings['assets'] = [
+    "path"         => __DIR__ . "/../public/assets",
+    "url_base_path"=> "assets/",
+    "cache_path"   => __DIR__ . "/../tmp/twig-assets",
+    "cache_name"   => "assets-cahce",
+    "minify"       => 1
 ];
 
 return $settings;

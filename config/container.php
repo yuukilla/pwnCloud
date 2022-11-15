@@ -12,6 +12,7 @@ use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use League\Flysystem\Visibility;
 use Monolog\Level;
 use Nyholm\Psr7\Factory\Psr17Factory;
+use Odan\Twig\TwigAssetsExtension;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;
@@ -23,8 +24,10 @@ use Slim\App;
 use Slim\Factory\AppFactory;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Middleware\ErrorMiddleware;
+use Slim\Views\Twig;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputOption;
+use Twig\Loader\FilesystemLoader;
 
 return [
     // Application settings
@@ -171,4 +174,29 @@ return [
 
         return new Storage($filesystem);
     },
+
+    Twig::class => function ( ContainerInterface $container ) {
+        $twigSettings = $container->get('settings')['twig'];
+        $assetsSettings = $container->get('settings')['assets'];
+
+        $twig = Twig::create(
+            $twigSettings['basePath'],
+            [
+                "cache" => $twigSettings['cacheEnabled'] ? $twigSettings['cachePath'] : false,
+                "debug" => $twigSettings['debug']
+            ]
+        );
+
+        $loader = $twig->getLoader();
+        if ( $loader instanceof FilesystemLoader ) {
+            $loader->addPath($twigSettings['loaderPath'], $twigSettings['loaderName']);
+        }
+
+        $enviroment = $twig->getEnvironment();
+
+        $twig->addExtension( new TwigAssetsExtension($enviroment, (array)$assetsSettings ) );
+        $twig->addExtension( new \Twig\Extension\DebugExtension() );
+
+        return $twig;
+    }
 ];
