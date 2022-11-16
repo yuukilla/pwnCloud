@@ -82,9 +82,9 @@
             "rm -rf templates/assets/css/bootstrap-icons",
             "mkdir public/assets/bootstrap-icons",
             "mkdir templates/assets/css/bootstrap-icons",
-            "mkdir templates/assets/css/bootstrap-icons/fonts",
+            "mkdir public/assets/fonts",
             "cp -r vendor/twbs/bootstrap-icons/icons/* public/assets/bootstrap-icons/",
-            "cp -r vendor/twbs/bootstrap-icons/font/fonts/* templates/assets/css/bootstrap-icons/fonts/",
+            "cp -r vendor/twbs/bootstrap-icons/font/fonts/* public/assets/fonts/",
             "cp -r vendor/twbs/bootstrap-icons/font/bootstrap-icons.css templates/assets/css/bootstrap-icons/"
         ],
         "jq:update": [
@@ -95,6 +95,7 @@
         "start:fresh": [
             "@assets:clear",
             "@bs:update",
+            "@bsi:update",
             "@jq:update",
             "@start"
         ],
