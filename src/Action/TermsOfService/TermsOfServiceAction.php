@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Action\Home;
+namespace App\Action\TermsOfService;
 
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class HomeAction
+final class TermsOfServiceAction
 {
 
     private $twig;
@@ -19,10 +19,10 @@ final class HomeAction
     {
         return $this->twig->render(
             $response,
-            'views/landing.twig',
+            'views/tos.twig',
             array(
-                'title' => 'pwnCloud',
-                'slug' => "b\$ckup before switching"
+                'title' => 'pwnCloud : Terms of Service'
+                // 'desc' => "b\$ckup before switching"
             )
         );
     }
