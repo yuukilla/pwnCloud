@@ -80,7 +80,6 @@
         "bsi:update": [
             "rm -rf public/assets/bootstrap-icons",
             "rm -rf templates/assets/css/bootstrap-icons",
-            "mkdir public/assets",
             "mkdir public/assets/bootstrap-icons",
             "mkdir templates/assets/css/bootstrap-icons",
             "mkdir public/assets/fonts",
@@ -92,12 +91,18 @@
             "rm -rf templates/assets/js/jquery.min.js",
             "cp vendor/components/jquery/jquery.min.js templates/assets/js/"
         ],
-        "assets:clear": "rm -rf public/assets/*;\n  rm -rf tmp/twig-assets;\n  rm -rf tmp/twig-cache;",
+        "assets:clear": [
+            "rm -rf public/assets",
+            "rm -rf tmp/twig-assets",
+            "rm -rf tmp/twig-cache",
+            "mkdir public/assets"
+        ],
         "start:fresh": [
             "@assets:clear",
             "@bs:update",
             "@bsi:update",
             "@jq:update",
+            "clear",
             "@start"
         ],
 
