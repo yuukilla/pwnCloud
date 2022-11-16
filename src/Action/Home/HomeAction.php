@@ -19,7 +19,7 @@ final class HomeAction
     {
         return $this->twig->render(
             $response,
-            'home.twig',
+            'views/landing.twig',
             array(
                 'title' => 'pwnCloud',
                 'desc' => "b\$ckup before switching"
