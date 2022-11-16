@@ -22,8 +22,8 @@ package-lock.json
 vendor/
 build/
 node_modules/
-docs/
-
+!docs/
+docs/*
 .env
 public/.env
 
